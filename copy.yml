@@ -3,6 +3,12 @@
   become: yes
   tasks:
     - name: unarchivethe files
+    - copy:
+        src: /home/vagrant/apache-tomcat-6.0.29.zip
+        dest: /opt/apache-tomcat-6.0.29.zip
+        owner: tomcat
+        group: tomcat
+        mode: 0644
       unarchive:
         src: /home/vagrant/apache-tomcat-6.0.29.zip
         dest: /opt/
