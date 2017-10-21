@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+    - name: install tomcat
+      yum: 
+        name: httpd
+        state: present
+    - name: install wget 
+      yum:
+        name: wget
+        state: present
+    - name: download remote file
+      get_url: 
+        url: http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war/2.85/jenkins.war
+        dest: /home/vagrant/
+        backup: yes 
+

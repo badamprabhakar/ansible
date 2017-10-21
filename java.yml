@@ -1,0 +1,24 @@
+---
+- hosts: centos
+  become: yes
+  tasks:
+    - name:  install open JDK
+      apt:
+        name: openjdk-6-jdk
+        state: present
+      when: ansible_os_family == "Debian"
+    - name: install java  on redhat
+      yum:
+        name: java-1.6.0-openjdk
+        state: present
+      when: ansible_os_family == "RedHat"
+    - name: install jave develop
+      yum:
+        name: java-1.6.0-openjdk-devel
+        state: present
+      when: ansible_os_family == "RedHat"
+    - name:
+      yum:
+        name: ant
+        state: present
+      when: ansible_os_family == "RedHat"

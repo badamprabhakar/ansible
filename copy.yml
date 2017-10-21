@@ -1,0 +1,10 @@
+---
+- hosts: centos
+  become: yes
+  tasks:
+    - name: copy file to host
+      copy:
+        src: /home/vagrant/logs.tar.gz
+        dest: /home/vagrant/logs.tar.gz
+        backup: yes
+        

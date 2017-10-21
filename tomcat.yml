@@ -1,0 +1,15 @@
+---
+- hosts: centos
+  become: yes
+  tasks:
+    - name: install tomcat on ubuntu
+      apt: 
+        name: tomcat6
+        state: installed
+      when: ansible_os_family == "Debian"
+    - name:  install tomcat on redhat
+        yum:
+          name: httpd
+          state: present
+        when: ansible_os_family == "RedHat"      
+        
