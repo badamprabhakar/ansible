@@ -2,13 +2,14 @@
 - hosts: centos
   become: yes
   tasks:
-    - name: unarchivethe files
-    - copy:
+    - name: copy files
+      copy:
         src: /home/vagrant/apache-tomcat-6.0.29.zip
         dest: /opt/apache-tomcat-6.0.29.zip
         owner: tomcat
         group: tomcat
         mode: 0644
+    - name: unarchivethe files
       unarchive:
         src: /home/vagrant/apache-tomcat-6.0.29.zip
         dest: /opt/
