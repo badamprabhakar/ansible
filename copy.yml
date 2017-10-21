@@ -11,6 +11,6 @@
         mode: 0644
     - name: unarchivethe files
       unarchive:
-        src: /home/vagrant/apache-tomcat-6.0.29.zip
+        src: /opt/apache-tomcat-6.0.29.zip
         dest: /opt/
         remote_src: yes
