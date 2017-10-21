@@ -2,9 +2,8 @@
 - hosts: centos
   become: yes
   tasks:
-    - name: copy file to host
-      copy:
-        src: /home/vagrant/logs.tar.gz
-        dest: /home/vagrant/logs.tar.gz
-        backup: yes
-        
+    - name: unarchivethe files
+      unarchive:
+        src: /home/vagrant/apache-tomcat-6.0.29.zip
+        dest: /opt/
+        remote_src: yes
