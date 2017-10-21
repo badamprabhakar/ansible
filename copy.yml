@@ -2,15 +2,19 @@
 - hosts: centos
   become: yes
   tasks:
-    - name: copy files
-      copy:
-        src: /home/vagrant/apache-tomcat-6.0.29.zip
-        dest: /opt/apache-tomcat-6.0.29.zip
-        owner: tomcat
-        group: tomcat
-        mode: 0644
+    - name: download remote file
+      get_url: 
+        url: http://redrockdigimark.com/apachemirror/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
+        dest: /usr/local/
+        backup: yes 
     - name: unarchivethe files
       unarchive:
-        src: /opt/apache-tomcat-6.0.29.zip
-        dest: /opt/
+        src: /usr/local/apache-tomcat-7.0.82.tar.gz
+        dest: /usr/local/
+        owner: tomcat
         remote_src: yes
+    - name: rename file
+        command: /usr/local/apache-tomcat* /usr/local/tomcat
+          
+
+          
