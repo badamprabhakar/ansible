@@ -8,8 +8,8 @@
         state: installed
       when: ansible_os_family == "Debian"
     - name:  install tomcat on redhat
-        yum:
-          name: httpd
-          state: present
-        when: ansible_os_family == "RedHat"      
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"      
         
