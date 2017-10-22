@@ -13,10 +13,20 @@
         dest: /usr/local/
         owner: tomcat
         remote_src: yes
-    - name: rename file
+    - name: rename file and create openmrs directory
       command: mv /usr/local/apache-tomcat-7.0.82 /usr/local/tomcat
+      command: mkdir /usr/local/tomcat/webapps 
+      command: mkdir /usr/local/tomcat/.OpenMRS 
       command: chown -R tomcat:tomcat /usr/local/tomcat
+    - name: download remote file open mrs
+      get_url: 
+        url: http://sourceforge.net/projects/openmrs/files/releases/OpenMRS_Platform_1.10.1/openmrs.war/download -O openmrs.war
+        dest: /usr/local/tomcat/webapps/
+        backup: yes 
+    - name: execute startup scriprt 
+    - script: /usr/local/tomcat/bin/startup.sh
 
-          
+
+    
 
 
