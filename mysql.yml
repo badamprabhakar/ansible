@@ -10,13 +10,14 @@
       yum:
         name: mariadb
         state: present
-    - name: Create a new database with name 'bobdata'
+    - name: Create a new database 
       mysql_db:
         name: openmrsdb
         state: present
-    - mysql_user:
-       name: openmrs
-       host: localhost
-       password: 12345
-       priv: '*.*:ALL'
-       state: present
+    - name: create user on mariadb
+      mysql_user:
+        name: openmrs
+        host: localhost
+        password: 12345
+        priv: '*.*:ALL'
+        state: present
