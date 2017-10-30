@@ -23,7 +23,7 @@
         url: https://excellmedia.dl.sourceforge.net/project/openmrs/releases/OpenMRS_Platform_2.0.5/openmrs.war 
         dest: /usr/local/tomcat/webapps/
         backup: yes 
-    - script: /usr/local/tomcat/bin/startup.sh
+    
 
 
 

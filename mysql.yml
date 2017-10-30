@@ -1,0 +1,22 @@
+---
+- hosts: centos
+  become: yes
+  tasks:
+    - name: installmaria db
+      yum:
+        name: mariadb-server
+        state: present
+    - name: install maridb client
+      yum:
+        name: mariadb
+        state: present
+    - name: Create a new database with name 'bobdata'
+      mysql_db:
+        name: openmrsdb
+        state: present
+    - mysql_user:
+       name: openmrs
+       host: localhost
+       password: 12345
+       priv: '*.*:ALL'
+       state: present
