@@ -1,0 +1,6 @@
+# file: mariadb.yml
+- hosts: centos
+  user: root
+  tasks:
+  - name: Install MariaDB Server
+    yum: name=mariadb-server state=latest update_cache=yes
