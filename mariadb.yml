@@ -5,9 +5,9 @@
   - name: Install MariaDB Server
     yum: name=mariadb-server state=latest update_cache=yes
   - name: install maridb client
-      yum:
-        name: mariadb
-        state: present
+    yum:
+      name: mariadb
+      state: present
   - name: Create a new database 
       mysql_db:
         name: openmrsdb
