@@ -1,0 +1,14 @@
+---
+- hosts: centos
+  become: yes
+  - name: Create a new badamp test 
+    mysql_db:
+      name: badam
+      state: present
+  - name: create user on badam test user
+    mysql_user:
+      name: badamtest
+      host: localhost
+      password: 12345
+      priv: '*.*:ALL'
+      state: present
