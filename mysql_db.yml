@@ -4,6 +4,8 @@
   tasks: 
   - name: Create a new badamp test 
     mysql_db:
+      login_password: 12345
+      login_user: root   
       name: badam
       state: present
   - name: create user on badam test user
