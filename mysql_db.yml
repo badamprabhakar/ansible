@@ -8,9 +8,10 @@
       login_user: root   
       name: badam
       state: present
-      login_unix_socket: /var/lib/mysql/mysql.sock
   - name: create user on badam test user
     mysql_user:
+      login_password: 12345
+      login_user: root   
       name: badamtest
       host: localhost
       password: 12345
